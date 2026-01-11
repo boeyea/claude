@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Tracker</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #1F2937;
+            background: white;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.5in;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #F59E0B;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #F59E0B;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        thead {
+            background: #FEF3C7;
+        }
+
+        th {
+            padding: 10px 8px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+            color: #D97706;
+            border: 1px solid #F59E0B;
+        }
+
+        td {
+            padding: 12px 8px;
+            border: 1px solid #E5E7EB;
+            font-size: 11px;
+            vertical-align: top;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #FAFAFA;
+        }
+
+        .status-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .status-checkboxes label {
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-checkboxes input {
+            width: 12px;
+            height: 12px;
+        }
+
+        .tips-box {
+            background: #FEF3C7;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #F59E0B;
+            margin-top: 15px;
+        }
+
+        .tips-box .title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #D97706;
+            margin-bottom: 6px;
+        }
+
+        .tips-box .tip {
+            font-size: 11px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .page { margin: 0; padding: 0.5in; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>📚 ASSIGNMENT TRACKER</h1>
+            <div class="subtitle">Month: _____________ Semester: _____________</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Class</th>
+                    <th style="width: 25%;">Assignment</th>
+                    <th style="width: 12%;">Due Date</th>
+                    <th style="width: 18%;">Status</th>
+                    <th style="width: 10%;">Grade</th>
+                    <th style="width: 20%;">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>__/__</td>
+                    <td>
+                        <div class="status-checkboxes">
+                            <label><input type="checkbox"> To Do</label>
+                            <label><input type="checkbox"> In Progress</label>
+                            <label><input type="checkbox"> Done</label>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tips-box">
+            <div class="title">💡 TIP:</div>
+            <div class="tip">Use different colored highlighters for each class! Yellow = high priority, Green = done, Pink = needs help</div>
+        </div>
+    </div>
+</body>
+</html>

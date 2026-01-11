@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Meal Planner</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #1F2937;
+            background: white;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.5in;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #EC4899;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #EC4899;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 13px;
+            color: #6B7280;
+            border-bottom: 1px solid #9CA3AF;
+            padding: 4px;
+            display: inline-block;
+            min-width: 250px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        thead {
+            background: #FCE7F3;
+        }
+
+        th {
+            padding: 10px 6px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #DB2777;
+            border: 1px solid #EC4899;
+        }
+
+        th.day-col {
+            width: 15%;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        th.meal-col {
+            width: 21.25%;
+        }
+
+        td {
+            padding: 15px 8px;
+            border: 1px solid #E5E7EB;
+            font-size: 11px;
+            min-height: 60px;
+            vertical-align: top;
+        }
+
+        td.day-cell {
+            background: #FCE7F3;
+            font-weight: bold;
+            color: #DB2777;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(odd) td:not(.day-cell) {
+            background: #FAFAFA;
+        }
+
+        .grocery-section {
+            margin-top: 20px;
+        }
+
+        .grocery-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #DB2777;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #FCE7F3;
+        }
+
+        .grocery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .grocery-category {
+            background: #FCE7F3;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #EC4899;
+        }
+
+        .grocery-category .cat-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #DB2777;
+            margin-bottom: 8px;
+        }
+
+        .grocery-category .item {
+            font-size: 11px;
+            padding: 3px 0;
+            border-bottom: 1px dotted #9CA3AF;
+            min-height: 18px;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .page { margin: 0; padding: 0.5in; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>🍎 WEEKLY MEAL PLANNER</h1>
+            <div class="subtitle">Week of: ____/____/____ to ____/____/____</div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="day-col">Day</th>
+                    <th class="meal-col">Breakfast</th>
+                    <th class="meal-col">Lunch</th>
+                    <th class="meal-col">Dinner</th>
+                    <th class="meal-col">Snacks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="day-cell">MONDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">TUESDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">WEDNESDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">THURSDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">FRIDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">SATURDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="day-cell">SUNDAY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="grocery-section">
+            <div class="grocery-title">🛒 GROCERY LIST</div>
+            <div class="grocery-grid">
+                <div class="grocery-category">
+                    <div class="cat-title">🥬 Produce</div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="grocery-category">
+                    <div class="cat-title">🥛 Dairy</div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="grocery-category">
+                    <div class="cat-title">🍖 Meat/Protein</div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="grocery-category">
+                    <div class="cat-title">🥫 Pantry</div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
