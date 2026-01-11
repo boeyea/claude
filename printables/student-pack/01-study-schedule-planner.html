@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Study Schedule</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: #1F2937;
+            background: white;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.5in;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+            border: 3px solid #F59E0B;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            color: #D97706;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .week-input {
+            background: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 2px solid #F59E0B;
+            font-weight: 600;
+            color: #D97706;
+            margin-top: 10px;
+        }
+
+        .study-goals {
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            border: 3px solid #F59E0B;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .goals-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D97706;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FDE68A;
+        }
+
+        .goal-item {
+            background: white;
+            border: 2px solid #FCD34D;
+            border-left: 5px solid #F59E0B;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .goal-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        .goal-item .text {
+            flex: 1;
+            font-weight: 600;
+            color: #92400E;
+            border-bottom: 2px solid #FDE68A;
+            padding-bottom: 4px;
+            min-height: 24px;
+        }
+
+        .schedule-grid {
+            background: white;
+            border: 3px solid #F59E0B;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+        }
+
+        .schedule-header {
+            display: grid;
+            grid-template-columns: 120px repeat(7, 1fr);
+            background: linear-gradient(90deg, #F59E0B 0%, #D97706 100%);
+        }
+
+        .schedule-header div {
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: white;
+            border-right: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .schedule-header div:last-child {
+            border-right: none;
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 120px repeat(7, 1fr);
+            border-bottom: 2px solid #FEF3C7;
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .time-cell {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            padding: 12px 10px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #D97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px solid #F59E0B;
+        }
+
+        .study-cell {
+            padding: 12px 8px;
+            min-height: 60px;
+            background: #FAFAFA;
+            border-right: 1px solid #FEF3C7;
+            font-size: 12px;
+        }
+
+        .study-cell:last-child {
+            border-right: none;
+        }
+
+        .study-cell:nth-child(even) {
+            background: white;
+        }
+
+        .exam-section {
+            background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+            border: 3px solid #EF4444;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .exam-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #991B1B;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .exam-card {
+            background: white;
+            border: 2px solid #EF4444;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .exam-card .subject {
+            font-weight: 700;
+            color: #991B1B;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #FEE2E2;
+            padding-bottom: 6px;
+            min-height: 28px;
+        }
+
+        .exam-card .detail {
+            font-size: 13px;
+            color: #6B7280;
+            margin-bottom: 4px;
+        }
+
+        .study-tips {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border: 3px dashed #3B82F6;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tips-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E40AF;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-box {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 4px solid #3B82F6;
+            font-size: 13px;
+            color: #1E3A8A;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .progress-tracker {
+            background: white;
+            border: 3px solid #F59E0B;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .progress-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D97706;
+            margin-bottom: 15px;
+        }
+
+        .subject-progress {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .subject-stat {
+            flex: 1;
+            min-width: 150px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #FCD34D;
+        }
+
+        .subject-stat .label {
+            font-size: 12px;
+            color: #92400E;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .subject-stat .value {
+            font-size: 24px;
+            font-weight: 800;
+            color: #D97706;
+            border-bottom: 3px solid #F59E0B;
+            padding-bottom: 4px;
+            display: inline-block;
+            min-width: 80px;
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .page { margin: 0; padding: 0.5in; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="header-content">
+                <div class="icon">📚</div>
+                <h1>Weekly Study Schedule</h1>
+                <div class="week-input">Week of: ____ / ____ / ____ to ____ / ____ / ____</div>
+            </div>
+        </div>
+
+        <div class="study-goals">
+            <div class="goals-header">
+                <span>🎯</span>
+                <span>THIS WEEK'S STUDY GOALS</span>
+            </div>
+            <div class="goal-item">
+                <input type="checkbox">
+                <div class="text">_______________________________________________</div>
+            </div>
+            <div class="goal-item">
+                <input type="checkbox">
+                <div class="text">_______________________________________________</div>
+            </div>
+            <div class="goal-item">
+                <input type="checkbox">
+                <div class="text">_______________________________________________</div>
+            </div>
+            <div class="goal-item">
+                <input type="checkbox">
+                <div class="text">_______________________________________________</div>
+            </div>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="schedule-header">
+                <div>TIME</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+                <div>SUN</div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">8:00 AM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">10:00 AM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">12:00 PM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">2:00 PM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">4:00 PM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">6:00 PM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+
+            <div class="schedule-row">
+                <div class="time-cell">8:00 PM</div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+                <div class="study-cell"></div>
+            </div>
+        </div>
+
+        <div class="exam-section">
+            <div class="exam-header">
+                <span>⚠️</span>
+                <span>UPCOMING EXAMS & DEADLINES</span>
+            </div>
+            <div class="exam-grid">
+                <div class="exam-card">
+                    <div class="subject">___________________________</div>
+                    <div class="detail">📅 Date: ____ / ____ / ____</div>
+                    <div class="detail">📝 Type: _________________</div>
+                    <div class="detail">📖 Chapters: _____________</div>
+                </div>
+                <div class="exam-card">
+                    <div class="subject">___________________________</div>
+                    <div class="detail">📅 Date: ____ / ____ / ____</div>
+                    <div class="detail">📝 Type: _________________</div>
+                    <div class="detail">📖 Chapters: _____________</div>
+                </div>
+                <div class="exam-card">
+                    <div class="subject">___________________________</div>
+                    <div class="detail">📅 Date: ____ / ____ / ____</div>
+                    <div class="detail">📝 Type: _________________</div>
+                    <div class="detail">📖 Chapters: _____________</div>
+                </div>
+                <div class="exam-card">
+                    <div class="subject">___________________________</div>
+                    <div class="detail">📅 Date: ____ / ____ / ____</div>
+                    <div class="detail">📝 Type: _________________</div>
+                    <div class="detail">📖 Chapters: _____________</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="study-tips">
+            <div class="tips-header">
+                <span>💡</span>
+                <span>STUDY TIPS FOR SUCCESS</span>
+            </div>
+            <div class="tip-box">
+                <span>✓</span>
+                <div><strong>Pomodoro Technique:</strong> Study for 25 minutes, take a 5-minute break. Repeat!</div>
+            </div>
+            <div class="tip-box">
+                <span>✓</span>
+                <div><strong>Active Recall:</strong> Test yourself instead of just re-reading notes.</div>
+            </div>
+            <div class="tip-box">
+                <span>✓</span>
+                <div><strong>Prioritize:</strong> Focus on challenging subjects during your peak energy hours.</div>
+            </div>
+            <div class="tip-box">
+                <span>✓</span>
+                <div><strong>Stay Consistent:</strong> Regular short sessions beat last-minute cramming!</div>
+            </div>
+        </div>
+
+        <div class="progress-tracker">
+            <div class="progress-header">📊 WEEKLY STUDY HOURS TRACKER</div>
+            <div class="subject-progress">
+                <div class="subject-stat">
+                    <div class="label">TOTAL HOURS</div>
+                    <div class="value">______</div>
+                </div>
+                <div class="subject-stat">
+                    <div class="label">GOAL HOURS</div>
+                    <div class="value">______</div>
+                </div>
+                <div class="subject-stat">
+                    <div class="label">COMPLETION</div>
+                    <div class="value">_____%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
