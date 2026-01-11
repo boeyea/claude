@@ -6,15 +6,15 @@
 }
 
 :root {
-    --primary: #6366F1;
-    --primary-dark: #4F46E5;
+    --primary: #10B981;
+    --primary-dark: #059669;
     --secondary: #F59E0B;
     --text-dark: #1F2937;
     --text-light: #6B7280;
     --bg-light: #F9FAFB;
     --border: #E5E7EB;
     --success: #10B981;
-    --gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    --gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
 
 body {
@@ -222,8 +222,58 @@ header {
     font-weight: 600;
 }
 
-/* Templates Section */
-.templates {
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 0;
+    background: white;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 64px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.step h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.step p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Planners Section */
+.planners {
     padding: 100px 0;
     background: var(--bg-light);
 }
@@ -244,13 +294,13 @@ header {
     color: var(--text-light);
 }
 
-.templates-grid {
+.planners-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
 }
 
-.template-card {
+.planner-card {
     background: white;
     border-radius: 16px;
     overflow: hidden;
@@ -259,23 +309,23 @@ header {
     position: relative;
 }
 
-.template-card:hover {
+.planner-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: var(--primary);
 }
 
-.template-card.featured {
+.planner-card.featured {
     border-color: var(--primary);
     border-width: 3px;
 }
 
-.template-card.bundle {
+.planner-card.bundle {
     grid-column: span 2;
     border-color: var(--secondary);
 }
 
-.template-badge {
+.planner-badge {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -288,11 +338,11 @@ header {
     z-index: 10;
 }
 
-.template-card.bundle .template-badge {
+.planner-card.bundle .planner-badge {
     background: var(--secondary);
 }
 
-.template-image {
+.planner-image {
     height: 280px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
@@ -303,12 +353,13 @@ header {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-.template-preview {
+.planner-preview {
     padding: 24px;
     color: white;
 }
 
-.preview-header {
+.preview-header,
+.preview-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -316,13 +367,15 @@ header {
     border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.preview-sections {
+.preview-sections,
+.preview-pages {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.preview-section {
+.preview-section,
+.page-item {
     background: rgba(255, 255, 255, 0.15);
     padding: 12px 16px;
     border-radius: 8px;
@@ -330,20 +383,20 @@ header {
     backdrop-filter: blur(10px);
 }
 
-.creator-os {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.budget-planner {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
 
-.business-hub {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.productivity-planner {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
 }
 
-.productivity-system {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+.wellness-planner {
+    background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
 }
 
-.student-hub {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+.student-planner {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
 }
 
 .bundle-content {
@@ -362,39 +415,47 @@ header {
     margin-bottom: 8px;
 }
 
+.bundle-subtitle,
 .bundle-items {
     font-size: 24px;
     opacity: 0.9;
+    margin-bottom: 4px;
 }
 
-.template-content {
+.bundle-stats {
+    font-size: 18px;
+    opacity: 0.85;
+    margin-top: 8px;
+}
+
+.planner-content {
     padding: 32px;
 }
 
-.template-content h3 {
+.planner-content h3 {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 12px;
 }
 
-.template-description {
+.planner-description {
     color: var(--text-light);
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
-.template-features {
+.planner-features {
     list-style: none;
     margin-bottom: 24px;
 }
 
-.template-features li {
+.planner-features li {
     padding: 8px 0;
     color: var(--text-dark);
     font-size: 14px;
 }
 
-.template-footer {
+.planner-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -592,11 +653,11 @@ footer {
         font-size: 48px;
     }
 
-    .templates-grid {
+    .planners-grid {
         grid-template-columns: 1fr;
     }
 
-    .template-card.bundle {
+    .planner-card.bundle {
         grid-column: span 1;
     }
 

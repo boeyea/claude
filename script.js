@@ -15,10 +15,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Gumroad Integration
 // Replace these with your actual Gumroad product links
 const GUMROAD_LINKS = {
-    'creator-os': 'https://yourname.gumroad.com/l/creator-os',
-    'business-hub': 'https://yourname.gumroad.com/l/business-hub',
-    'productivity-system': 'https://yourname.gumroad.com/l/productivity-system',
-    'student-hub': 'https://yourname.gumroad.com/l/student-hub',
+    'budget-pack': 'https://yourname.gumroad.com/l/budget-pack',
+    'productivity-pack': 'https://yourname.gumroad.com/l/productivity-pack',
+    'wellness-pack': 'https://yourname.gumroad.com/l/wellness-pack',
+    'student-pack': 'https://yourname.gumroad.com/l/student-pack',
     'complete-bundle': 'https://yourname.gumroad.com/l/complete-bundle'
 };
 
