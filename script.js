@@ -15,11 +15,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Gumroad Integration
 // Replace these with your actual Gumroad product links
 const GUMROAD_LINKS = {
-    'budget-pack': 'https://yourname.gumroad.com/l/budget-pack',
-    'productivity-pack': 'https://yourname.gumroad.com/l/productivity-pack',
-    'wellness-pack': 'https://yourname.gumroad.com/l/wellness-pack',
-    'student-pack': 'https://yourname.gumroad.com/l/student-pack',
-    'complete-bundle': 'https://yourname.gumroad.com/l/complete-bundle'
+    'business-pack': 'https://yourname.gumroad.com/l/business-prompts',
+    'marketing-pack': 'https://yourname.gumroad.com/l/marketing-prompts',
+    'content-pack': 'https://yourname.gumroad.com/l/content-prompts',
+    'productivity-pack': 'https://yourname.gumroad.com/l/productivity-prompts',
+    'complete-bundle': 'https://yourname.gumroad.com/l/complete-prompts-bundle'
 };
 
 // Handle purchase button clicks
@@ -64,7 +64,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Animate elements on scroll
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.template-card, .feature, .faq-item');
+    const animateElements = document.querySelectorAll('.planner-card, .feature, .faq-item, .comparison');
 
     animateElements.forEach(el => {
         el.style.opacity = '0';
