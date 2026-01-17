@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Content Creation - Complete Reference & Workbook</title>
+    <link rel="stylesheet" href="reference-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Authority Content Creation</h1>
+            <p class="subtitle">Complete Reference & Workbook</p>
+            <div class="header-actions">
+                <button id="search-toggle" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 12L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Search
+                </button>
+                <button id="bookmark-toggle" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 3h10v14l-5-3-5 3V3z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Bookmarks
+                </button>
+                <button id="progress-toggle" class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 6v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Progress
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="overlay hidden">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search the entire guide..." autofocus>
+            <button id="search-close" class="close-btn">×</button>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Bookmark Sidebar -->
+    <div id="bookmark-sidebar" class="sidebar hidden">
+        <div class="sidebar-header">
+            <h3>Your Bookmarks</h3>
+            <button class="close-btn" onclick="closeBookmarks()">×</button>
+        </div>
+        <div id="bookmark-list" class="bookmark-list">
+            <p class="empty-state">No bookmarks yet. Click the bookmark icon on any section to save it.</p>
+        </div>
+    </div>
+
+    <!-- Progress Sidebar -->
+    <div id="progress-sidebar" class="sidebar hidden">
+        <div class="sidebar-header">
+            <h3>Your Progress</h3>
+            <button class="close-btn" onclick="closeProgress()">×</button>
+        </div>
+        <div class="progress-overview">
+            <div class="progress-stat">
+                <span class="stat-label">Completed</span>
+                <span id="progress-count" class="stat-value">0/22</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+            </div>
+        </div>
+        <div id="progress-list" class="progress-list"></div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Side Navigation -->
+        <nav class="side-nav">
+            <div class="nav-section">
+                <div class="nav-header">
+                    <h3>Quick Start</h3>
+                </div>
+                <a href="#how-to-use" class="nav-link">How to Use This Guide</a>
+                <a href="#honest-premise" class="nav-link">The Honest Premise</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-header">
+                    <h3>Part One: Launch Phase</h3>
+                    <span class="phase-tag">Days 1-90</span>
+                </div>
+                <a href="#chapter-1" class="nav-link">
+                    <span class="chapter-num">1</span>
+                    Minimum Viable Setup
+                </a>
+                <a href="#chapter-2" class="nav-link">
+                    <span class="chapter-num">2</span>
+                    The Only Rules That Matter
+                </a>
+                <a href="#chapter-3" class="nav-link">
+                    <span class="chapter-num">3</span>
+                    Content Production Rhythm
+                </a>
+                <a href="#chapter-4" class="nav-link">
+                    <span class="chapter-num">4</span>
+                    The Feedback Loop
+                </a>
+                <a href="#chapter-5" class="nav-link">
+                    <span class="chapter-num">5</span>
+                    The Real Timeline
+                </a>
+                <a href="#chapter-6" class="nav-link">
+                    <span class="chapter-num">6</span>
+                    Platform Reality
+                </a>
+                <a href="#chapter-7" class="nav-link">
+                    <span class="chapter-num">7</span>
+                    Mindset for Survival
+                </a>
+                <a href="#chapter-8" class="nav-link">
+                    <span class="chapter-num">8</span>
+                    Quick Start Checklist
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-header">
+                    <h3>Part Two: Content Formats</h3>
+                    <span class="phase-tag">Reference</span>
+                </div>
+                <a href="#chapter-9" class="nav-link">
+                    <span class="chapter-num">9</span>
+                    Content Format Overview
+                </a>
+                <a href="#chapter-10" class="nav-link">
+                    <span class="chapter-num">10</span>
+                    Long-Form Video Production
+                </a>
+                <a href="#chapter-11" class="nav-link">
+                    <span class="chapter-num">11</span>
+                    Content Type Breakdown
+                </a>
+                <a href="#chapter-12" class="nav-link">
+                    <span class="chapter-num">12</span>
+                    Content Calendar Templates
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-header">
+                    <h3>Part Three: Advanced</h3>
+                    <span class="phase-tag">After Day 90</span>
+                </div>
+                <a href="#chapter-13" class="nav-link">
+                    <span class="chapter-num">13</span>
+                    Advanced Equipment
+                </a>
+                <a href="#chapter-14" class="nav-link">
+                    <span class="chapter-num">14</span>
+                    Advanced Set Design
+                </a>
+                <a href="#chapter-15" class="nav-link">
+                    <span class="chapter-num">15</span>
+                    Advanced Wardrobe
+                </a>
+                <a href="#chapter-16" class="nav-link">
+                    <span class="chapter-num">16</span>
+                    Market Psychology
+                </a>
+                <a href="#chapter-17" class="nav-link">
+                    <span class="chapter-num">17</span>
+                    On-Camera Performance
+                </a>
+                <a href="#chapter-18" class="nav-link">
+                    <span class="chapter-num">18</span>
+                    Your Specific Pairing
+                </a>
+                <a href="#chapter-19" class="nav-link">
+                    <span class="chapter-num">19</span>
+                    Thumbnails & Page Design
+                </a>
+                <a href="#chapter-20" class="nav-link">
+                    <span class="chapter-num">20</span>
+                    Safety & Compliance
+                </a>
+                <a href="#chapter-21" class="nav-link">
+                    <span class="chapter-num">21</span>
+                    Common Mistakes
+                </a>
+                <a href="#chapter-22" class="nav-link">
+                    <span class="chapter-num">22</span>
+                    Quick Reference Checklists
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Content will be loaded here dynamically -->
+            <div id="content-area">
+                <div class="loading">Loading content...</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button id="print-btn" class="fab" title="Print current chapter">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect x="4" y="2" width="12" height="4" stroke="currentColor" stroke-width="2"/>
+                <rect x="2" y="6" width="16" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="4" y="11" width="12" height="7" fill="currentColor"/>
+            </svg>
+        </button>
+        <button id="notes-btn" class="fab" title="Add note">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 3h14v11l-3 3H3V3z" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 7h8M6 10h8M6 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <button id="scroll-top-btn" class="fab hidden" title="Scroll to top">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 15V5M10 5L5 10M10 5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <script src="reference-script.js"></script>
+</body>
+</html>
