@@ -51,9 +51,9 @@ This is a fully-featured interactive web application that transforms the compreh
 ## 🚀 How to Use
 
 ### Option 1: Open Locally
-1. Simply open `reference.html` in any modern web browser
+1. Simply open `index.html` in any modern web browser
 2. All files must be in the same directory:
-   - `reference.html`
+   - `index.html`
    - `reference-styles.css`
    - `reference-script.js`
    - `Authority_Content_Complete_Guide.txt`
@@ -67,7 +67,7 @@ python3 -m http.server 8080
 npx http-server -p 8080
 
 # Then open in browser:
-# http://localhost:8080/reference.html
+# http://localhost:8080/index.html
 ```
 
 ### Option 3: Deploy to Web Hosting
@@ -81,7 +81,7 @@ Upload all files to any web hosting service:
 
 ```
 /
-├── reference.html              # Main HTML structure
+├── index.html                  # Main HTML structure
 ├── reference-styles.css        # Complete styling
 ├── reference-script.js         # Interactive features
 ├── Authority_Content_Complete_Guide.txt  # Source content
@@ -228,12 +228,12 @@ The guide contains **22 chapters** across **3 parts**:
 ### GitHub Pages (Free)
 ```bash
 # Push to GitHub repo
-git add reference.html reference-styles.css reference-script.js Authority_Content_Complete_Guide.txt
+git add index.html reference-styles.css reference-script.js Authority_Content_Complete_Guide.txt
 git commit -m "Add interactive reference guide"
 git push
 
 # Enable GitHub Pages in repo settings
-# Access at: https://yourusername.github.io/yourrepo/reference.html
+# Access at: https://yourusername.github.io/yourrepo/
 ```
 
 ### Netlify (Free)
@@ -332,7 +332,7 @@ This reference tool is designed to accompany the Authority Content Creation guid
 ## Quick Start Checklist
 
 - [ ] Extract all files to a folder
-- [ ] Open `reference.html` in browser (or use web server)
+- [ ] Open `index.html` in browser (or use web server)
 - [ ] Bookmark the page for easy access
 - [ ] Read "The Honest Premise" introduction
 - [ ] Start with Chapter 1
