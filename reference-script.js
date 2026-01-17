@@ -25,27 +25,34 @@ class ContentReference {
 
   async loadAndParseContent() {
     try {
-      const response = await fetch('Authority_Content_Complete_Guide.txt');
-      const text = await response.text();
-      this.parseDocument(text);
+      // Load main guide
+      const response1 = await fetch('Authority_Content_Complete_Guide.txt');
+      const mainText = await response1.text();
+      this.parseDocument(mainText);
+
+      // Load story/narrative guide
+      const response2 = await fetch('Story_Narrative_Guide.txt');
+      const storyText = await response2.text();
+      this.parseDocument(storyText, 'Story');
     } catch (error) {
       console.error('Error loading content:', error);
       document.getElementById('content-area').innerHTML = `
         <div class="callout callout-danger">
           <h3>Error Loading Content</h3>
-          <p>Could not load the Authority Content Complete Guide. Please ensure the file is in the correct location.</p>
+          <p>Could not load the content guides. Please ensure the files are in the correct location.</p>
         </div>
       `;
     }
   }
 
-  parseDocument(text) {
+  parseDocument(text, prefix = '') {
     const lines = text.split('\n');
     let currentChapter = null;
     let currentContent = [];
     let chapterNumber = 0;
     let partNumber = 0;
     let currentPart = '';
+    const idPrefix = prefix ? prefix.toLowerCase() + '-' : '';
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -70,10 +77,10 @@ class ContentReference {
         chapterNumber++;
         const titleLine = lines[i + 1];
         currentChapter = {
-          id: `chapter-${chapterNumber}`,
+          id: idPrefix ? `${idPrefix}${chapterNumber}` : `chapter-${chapterNumber}`,
           number: chapterNumber,
           title: titleLine.trim(),
-          part: currentPart,
+          part: currentPart || (prefix ? `${prefix} Guide` : ''),
           content: ''
         };
         i += 2; // Skip the === and title line
